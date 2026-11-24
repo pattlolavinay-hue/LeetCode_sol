@@ -13,19 +13,20 @@ public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode pA = headA;
         ListNode pB = headB;
-        while(pA != null && pB != null){
-            if(pA == pB){
-                return pA;
+        while(pA != pB){
+            if(pA == null){
+                pA = headB;
+            }else{
+                pA = pA.next;
             }
-            pA = pA.next;
-            pB = pB.next;
-            if(pA == null && pB != null){
-                pA = headA;
+
+            if(pB == null){
+                pB = headA;
+            }else{
+                pB = pB.next;
             }
-            if(pA != null && pB == null){
-                pB = headB;
-            }
+            
         }
-        return null;
+        return pA;
     }
 }
