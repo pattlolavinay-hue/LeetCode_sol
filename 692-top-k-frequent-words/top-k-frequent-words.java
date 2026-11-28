@@ -14,12 +14,10 @@ class Solution {
         while(k>0){
             String s = "";
             int max = 0;
-            for(int i=0; i<n; i++){
-                if(hm.containsKey(words[i])){
-                    if(hm.get(words[i])>max || (hm.get(words[i])==max && s.compareTo(words[i])>0)){
-                        s = words[i];
-                        max = hm.get(words[i]);
-                    }
+            for(String key : hm.keySet()){
+                if(hm.get(key)>max || (hm.get(key)==max && s.compareTo(key)>0)){
+                    s = key;
+                    max = hm.get(key);
                 }
             }
             lst.add(s);
